@@ -500,8 +500,6 @@
       img: "keanu.jpg",
       status: 0
     };
-    console.log(code);
-//    let code = codes[Math.floor(Math.random() * codes.length)];
     let content = `
             <div class="highlight selected" id="code${code.code}">
 
@@ -521,7 +519,6 @@
             </div>
             `;
     document.querySelector(".codes").innerHTML = content;
-//    document.querySelector(".selected").setAttribute("id", "code"+code.code);
     document.querySelector('meta[property="og:image"]').setAttribute("content", "https://www.keanu.codes/"+code.pic);
 
   </script>
