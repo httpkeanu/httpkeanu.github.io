@@ -1,8 +1,3 @@
-import { defineConfig } from "vite";
-import handlebars from "vite-plugin-handlebars";
-import settings from "./codes.json";
-/*
-const content = `
 <html lang="en">
   <head>
 
@@ -35,9 +30,10 @@ const content = `
         </p>
         <p class="random">
           🎲
-          <a href="/random.html">Choose a random code</a>
+          <a href="/">Choose a random code</a>
         </p>
         <div class="codes">
+          {{#if selected}}
             <div class="highlight selected" id="code{{{code}}}">
 
               <h2>{{code}}</h2>
@@ -59,60 +55,38 @@ const content = `
                 {{/if}}
               </div>
             </div>
+          {{else}}
+            {{#each settings.list}}
+              <div class="code" id="code{{{code}}}">
+
+                <h2>{{code}}</h2>
+                <h3>{{name}}</h3>
+                <div class="imghold">
+                  <a href="/"><img
+                      src="{{pic}}"
+                      alt="{{alt}}" 
+                    /></a>
+                </div>
+              </div>
+            {{/each}}
+          {{/if}}
         </div>
         <p id="bonus">
           Bonus: try selecting an invalid code, like
-          <a href="?code=1000">1000</a>
+          <a href="/">1000</a>
         </p>
       </div>
+      <footer class="footer">
+        <a
+          class="btn--remix"
+          target="_top"
+          href="https://github.com/httpkeanu/httpkeanu.github.io/"
+        >
+          🚧
+          Remix your own
+        </a>
+      </footer>
     </div>
 
   </body>
 </html>
-`;
-const codePages = settings.list.map(function (c) {
-    return {
-        [c.code + ".html"]:  c
-    }
-});
-let rand = {
-  rand: true,
-  settings: JSON.stringify(settings.list)
-}
-console.log(rand)
-const pageData = {
-    '/index.html': {
-        settings,
-    },
-    '/random.html': {
-        rand
-    },
-    "/nope.html": {
-      settings
-    }
-};
-settings.list.forEach((c) => {
-    pageData["/" + c.code + ".html"] =  c
-});
-//console.log(pageData);
-const fse = require('fs-extra');
-codePages.forEach((cp) => {
-    fse.outputFileSync("public/"+Object.keys(cp)[0], content);
-});
-*/
-// https://vitejs.dev/config/
-export default defineConfig({
-    plugins: [
-        handlebars({
-            context: { settings }
-        }),
-    ],
-    build: {
-        outDir: "docs",
-    },
-    rollupOptions: {
-        input: {
-            main: 'index.html'
-        },
-    }
-});
