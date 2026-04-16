@@ -13,7 +13,7 @@
       content="An app for learning about status codes!"
     />
     <meta property="og:title" content="HTTP Keanu ({{{status}}} {{{name}}})" />
-    <meta property="og:image" content="{{{img}}}" />
+    <meta property="og:image" content="https://www.keanu.codes/{{{img}}}" />
 
     <title>HTTP Keanu ({{{status}}} {{{name}}})</title>
 
@@ -30,7 +30,7 @@
         </p>
         <p class="random">
           🎲
-          <a href="/">Choose a random code</a>
+          <a href="/random.html">Choose a random code</a>
         </p>
         <div class="codes">
           {{#if selected}}
@@ -39,7 +39,7 @@
               <h2>{{code}}</h2>
               <h3>{{name}}</h3>
               <div class="imghold">
-                <img src="{{pic}}" alt="{{alt}}" />
+                <img src="/{{pic}}" alt="{{alt}}" />
               </div>
 
               <div class="extra">
@@ -55,25 +55,11 @@
                 {{/if}}
               </div>
             </div>
-          {{else}}
-            {{#each settings.list}}
-              <div class="code" id="code{{{code}}}">
-
-                <h2>{{code}}</h2>
-                <h3>{{name}}</h3>
-                <div class="imghold">
-                  <a href="/"><img
-                      src="{{pic}}"
-                      alt="{{alt}}" 
-                    /></a>
-                </div>
-              </div>
-            {{/each}}
           {{/if}}
         </div>
         <p id="bonus">
           Bonus: try selecting an invalid code, like
-          <a href="/">1000</a>
+          <a href="/1000.html">1000</a>
         </p>
       </div>
       <footer class="footer">
