@@ -7,10 +7,10 @@
   <link rel="icon" href="favicon.ico" />
   <meta name="description" content="An app for learning about status codes!" />
   <meta name="og:description" content="An app for learning about status codes!" />
-  <meta property="og:title" content="HTTP Keanu (Random)" />
-  <meta property="og:image" content="" />
+  <meta property="og:title" content="HTTP Keanu (?)" />
+  <meta property="og:image" content="https://www.keanu.codes/thankeanu.jpg" />
 
-  <title>HTTP Keanu (Random)</title>
+  <title>HTTP Keanu (?)</title>
 
   <link rel="stylesheet" href="style.css" />
 
@@ -34,7 +34,7 @@
 
       <p id="bonus">
         Bonus: try selecting an invalid code, like
-        <a href="/code.html?code=1000">1000</a>
+        <a href="/1000.html">1000</a>
       </p>
     </div>
     <footer class="footer">
@@ -496,7 +496,7 @@
             </div>
             `;
     document.querySelector(".codes").innerHTML = content;
-    document.querySelector('meta[name="og:image"]').setAttribute("content", "https://www.keanu.codes/" + code.pic);
+//    document.querySelector('meta[name="og:image"]').setAttribute("content", "https://www.keanu.codes/" + code.pic);
 
   </script>
 </body>
